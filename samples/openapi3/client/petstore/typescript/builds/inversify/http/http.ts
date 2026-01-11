@@ -179,6 +179,10 @@ export class SelfDecodingBody implements ResponseBody {
         const data: Buffer = await this.dataSource;
         return data.toString();
     }
+
+    stream(): ReadableStream<Uint8Array> | null {
+        return null;
+    }
 }
 
 export class ResponseContext {
