@@ -216,6 +216,11 @@ export class RequestContext {
 export interface ResponseBody {
     text(): Promise<string>;
     binary(): Promise<{{{fileContentDataType}}}>;
+    {{#platforms}}
+    {{#node}}
+    stream?(): ReadableStream<Uint8Array> | null;
+    {{/node}}
+    {{/platforms}}
 }
 
 /**
